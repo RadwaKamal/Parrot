@@ -12,22 +12,24 @@ const packt_options = {
   }
 };
 
-rp(packt_options)
-  .then(($) => {
-    book_title = $('.dotd-title').text().trim();
-    if(book_title)
-      rp.post({
-        uri: `${telegram_uri}`,
-        body: {
-            chat_id: '@pmacaw',
-            text: `Today's book from packtpub: ${book_title} \n Get it now at ${packt_uri}`,
-            disable_web_page_preview: true
-        },
-        json: true 
+setInterval(() => {
+  rp(packt_options)
+    .then(($) => {
+      book_title = $('.dotd-title').text().trim();
+      if(book_title)
+        rp.post({
+          uri: `${telegram_uri}`,
+          body: {
+              chat_id: '@pmacaw',
+              text: `Today's book from packtpub: ${book_title} \n Get it now at ${packt_uri}`,
+              disable_web_page_preview: true
+          },
+          json: true 
+      })
+      else
+        console.log(`Book title is empty`)
     })
-    else
-      console.log(`Book title is empty`)
-  })
-  .catch((err) => {
-    console.log(err);
-});	
+    .catch((err) => {
+      console.log(err);
+  });	
+}, 88200000)
