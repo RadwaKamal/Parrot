@@ -1,0 +1,23 @@
+{
+  "name": "parrot",
+  "version": "1.0.0",
+  "description": "Telegram bot that sends book title of daily free learning offer by packt to a channel",
+  "main": "index.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "speak": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "packt"
+  ],
+  "author": "radwa kamal",
+  "license": "MIT"
+}
