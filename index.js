@@ -1,9 +1,8 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
-const secret = require('./secret')
 
 const packt_uri = `https://www.packtpub.com/packt/offers/free-learning`;
-const telegram_uri = `https://api.telegram.org/bot${secret.auth_token}/sendMessage`;
+const telegram_uri = `https://api.telegram.org/bot${process.env.AUTH_TOKEN}/sendMessage`;
 
 const packt_options = {
   uri: `${packt_uri}`,
